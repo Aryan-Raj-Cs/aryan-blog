@@ -1,0 +1,18 @@
+{%extends 'blog/basecheck.html' %}
+{%block title_block %}{{post.title}}{%endblock%}
+{%block content%}
+{%if sent%}
+<h1>successfully sent mail</h1>
+
+{%else%}
+<h1>share by mail</h1>
+
+<form method="post" >
+    {{form.as_p}}
+    {%csrf_token%}
+<input type="submit" class="btn btn-primary " value="send mail">
+
+</form>
+
+{%endif%}
+{%endblock%}

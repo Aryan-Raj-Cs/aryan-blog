@@ -1,0 +1,29 @@
+.content{
+color:white;
+padding:20px;
+
+height:100%;
+/background:red;*/
+
+}
+
+.sidebar{
+
+padding:20px;
+
+height:100%;
+background:green;
+}
+h1{
+border-bottom: solid yellow;
+  border-width: 5px;
+text-align:center;
+}
+#pra{
+color:yellow;
+}
+body{
+background-color:red;
+font-color:black;
+/*background-color: #f1f1f1;*/
+}

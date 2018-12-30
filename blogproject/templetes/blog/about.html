@@ -1,0 +1,19 @@
+{%extends "blog/basecheck.html"%}
+{%block content%}
+<h1>
+    Aryan Raj <br><a href="tel:8292858076">Call</a>
+    <br>
+    <a href="mailto:aryanrajresonance@gmail.com">Mail</a>
+    <br>
+    <!--<a href="whatsapp://send?abid=phonenumber&text=Hello%2C%20World!">Send Message</a>-->
+
+    <a href="https://api.whatsapp.com/send?phone=919752362111&text=https://www.indiatoday.in/elections">WhatsApp</a>
+</h1>
+
+
+
+{% for cmnt in v%}
+{{cmnt.name}}<br>
+{{cmnt.email}}<br>
+{%endfor%}
+{%endblock%}

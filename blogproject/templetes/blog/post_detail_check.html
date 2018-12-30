@@ -1,0 +1,37 @@
+{%extends 'blog/basecheck.html' %}
+{%block title_block %}Aryan's Blog{%endblock%}
+{%block content%}
+<h3>{{post.title}}</h3>
+<p>published on {{post.publish}}by <strong>{{post.author|title}}</strong></p>
+      {{post.body|linebreaks}}
+
+<a href="/{{post.id}}/share"  class="btn btn-primary ">share by mail</a>
+
+{%with comments.count as comments_count%}
+<p><strong>{{comments_count}} comment{{comments_count|pluralize}}</strong></p>
+{%endwith%}
+{%if csubmit%}
+<h3>your comment successfully added</h3>
+{%else%}
+<form method="POST">
+      {%csrf_token%}
+      {{form.as_p}}
+      <input type="submit" class="btn btn-primary " value="submit">
+
+
+</form>
+{%endif%}
+{%if comments%}
+{%for comment in comments%}
+<!--<p id="ch">comment {{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>-->
+<p id="ch"><strong>{{comment.name}}</strong> on {{comment.created}}</p>
+<p class="cb">
+{{comment.body|linebreaks}}
+      {%endfor%}
+ {%else%}
+      <p>there is no comment</p>
+      {%endif%}
+
+</p>
+<!--<p><a href="lol/">lolll</a></p>-->
+{%endblock%}

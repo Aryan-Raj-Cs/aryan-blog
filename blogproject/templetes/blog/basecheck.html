@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load staticfiles%}
+{%load blog_tags%}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{%block title_block%}{%endblock%}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{%static  'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{%static  'css/blog-home.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Aryan Raj Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+          <h1 class="my-4"> Aryan Raj {Python,Django Developer}
+
+          </h1>
+            <p>
+              <strong>Contact </strong> <small><a href="https://api.whatsapp.com/send?phone=918292858076&text=Hi Aryan ..."><img height="30px" weight="30px" src="{%static 'image/whatsapp.png'%}"/></a></small>
+                <a href="tel:8292858076"><img height="30px" weight="30px" src="{%static 'image/call.png'%}"/></a>
+            </p>
+{%block content%}
+
+{%endblock%}
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Search Widget -->
+ <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+            <!--total post -->
+             <h5 class="card-header">Total no of Posts {%total_posts%}</h5>
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Latest Posts</h5>
+              {%show_latest_post %}
+
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Most commented post</h5>
+            <div class="card-body">
+              {% get_most_commented_posts as mpost   %}
+    <ul>
+      {%for post in mpost%}
+          <li><a href="{{post.get_absolute_url}}" > {{post.title}} </a></li>
+    {%endfor%}
+    </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <!--<p class="m-0 text-center text-white">Copyright &copy; Aryan Raj 2018</p>-->
+        <p class="m-0 text-center text-white">Developer  Aryan Raj</p>
+          <p class="m-0 text-center text-white" >
+              Whatsapp +918292858076, Call +918709262134
+          </p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
